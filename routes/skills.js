@@ -1,13 +1,12 @@
-var express = require('express');
-var router = express.Router();
-const skillsCtrl = require('../controllers/skills')
+const express = require('express');
+const router = express.Router();
+const skillsCtrl = require('../controllers/skills');
 
+
+// WORK ON PLACING FUNCTIONS IN MODELno
 router.get('/', skillsCtrl.index);
-
+router.get('/new', skillsCtrl.new);
 router.get('/:id', skillsCtrl.show);
+router.post('/', skillsCtrl.create)
 
 module.exports = router;
-
- // existing route above
- 
- 

@@ -7,15 +7,18 @@
     <title>Express Dev-Skills</title>
 </head>
 <body>
-    <h1>Todos</h1>
+  <a href="/">Home</a>
+  <h1>Skills as of <%= time %></h1>
     <ul>
       <% skills.forEach(function(s) { %>
         <li>
-          <%= s.skill %>
-            - 
-          <%= s.skill ? 'done' : 'not done' %>
+          <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+          - <%= s.done ? 'done' : 'not done' %>
+          <form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">X</button>
+          </form>
         </li>
-      <% }); %>
+        <% }); %>
     </ul>
   </body>
 
