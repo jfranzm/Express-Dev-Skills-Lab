@@ -5,7 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Express Dev-Skills</title>
+    <link rel="stylesheet" href="../../stylesheets/style.css">
 </head>
+<style>
+  li {
+    list-style: none;
+  }
+  .delete-form {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .delete-form button {
+    color: red;
+  }
+</style>
 <body>
   <a href="/">Home</a>
   <a href="/skills/new">Add Skill</a>
@@ -13,11 +27,11 @@
     <ul>
       <% skills.forEach(function(s) { %>
         <li>
-          <a href="/skills/<%= s.id %>"><%= s.skill %></a>
-          - <%= s.done ? 'done' : 'not done' %>
           <form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
             <button type="submit">X</button>
           </form>
+          <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+          - <%= s.done ? 'done' : 'not done' %>
         </li>
         <% }); %>
     </ul>
